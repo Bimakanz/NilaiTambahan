@@ -39,25 +39,29 @@ export default function Login() {
 
                 {/* ── Logo bulat di tengah ── */}
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: '30%' }}>
-                    <View style={{
-                        width: 130,
-                        height: 130,
-                        borderRadius: 65,
-                        backgroundColor: '#C41230',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        shadowColor: '#000',
-                        shadowOffset: { width: 0, height: 4 },
-                        shadowOpacity: 0.25,
-                        shadowRadius: 8,
-                        elevation: 8,
-                    }}>
+                    <LinearGradient
+                        colors={['#C41230', '#4A0000']}
+                        start={{ x: 1, y: 0 }}
+                        end={{ x: 1, y: 0 }}
+                        style={{
+                            width: 130,
+                            height: 130,
+                            borderRadius: 65,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            shadowColor: '#000',
+                            shadowOffset: { width: 0, height: 4 },
+                            shadowOpacity: 0.25,
+                            shadowRadius: 8,
+                            elevation: 8,
+                        }}
+                    >
                         <Image
                             source={require('../assets/images/Saraya-Logo.svg')}
                             style={{ width: 100, height: 100 }}
                             contentFit="contain"
                         />
-                    </View>
+                    </LinearGradient>
 
                     {/* ── Nama SARAYA ── */}
                     <Image
@@ -73,8 +77,8 @@ export default function Login() {
                     {/* ── Tagline ── */}
                     <Text style={{
                         marginTop: 12,
-                        fontSize: 15,
-                        color: '#555',
+                        fontSize: 18,
+                        color: 'black',
                         textAlign: 'center',
                         lineHeight: 24,
                         paddingHorizontal: 40,
@@ -89,7 +93,7 @@ export default function Login() {
                     onPress={() => router.replace('/login')}
                     style={{
                         backgroundColor: '#C41230',
-                        borderRadius: 8,
+                        borderRadius: 50,
                         paddingVertical: 16,
                         width: width * 0.7,
                         alignItems: 'center',
@@ -97,7 +101,7 @@ export default function Login() {
                         shadowOffset: { width: 0, height: 4 },
                         shadowOpacity: 0.35,
                         shadowRadius: 10,
-                        elevation: 6,
+                        elevation: 20,
                     }}
                 >
                     <Text style={{ color: '#fff', fontSize: 16, letterSpacing: 0.5 }}>

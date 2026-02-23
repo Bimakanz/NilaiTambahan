@@ -18,7 +18,7 @@ export default function splash() {
                 useNativeDriver: true,
             }).start(() => {
                 // Navigate after animation completes
-                router.replace("/login");
+                router.replace("/masuk");
             });
         }, 4500); // Start fade out at 4.5s (total 5s with 0.5s animation)
 

@@ -1,98 +1,145 @@
 import { Image } from 'expo-image'
 import { LinearGradient } from 'expo-linear-gradient'
-import { Bell, Play, Zap } from 'lucide-react-native'
+import { useRouter } from 'expo-router'
+import { Bell, PlayCircle, Zap } from 'lucide-react-native'
 import React from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
+import {
+  Dimensions,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-export default function index() {
+const { width } = Dimensions.get('window')
+
+export default function Home() {
+  const router = useRouter()
+
   return (
-    <LinearGradient
-      colors={['#ffffff', '#BD9CD14D', '#ffffff']}
-      locations={[0.2, 0.5, 0.8]}
-      style={{ flex: 1 }}
-    >
-      <SafeAreaView style={{ flex: 1, padding: 20 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
 
-        {/* Header */}
-        <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-          <View>
-            <Text style={{ fontSize: 20, color: 'gray', fontWeight: 'bold' }}>Selamat Datang,</Text>
-            <Text style={{ fontSize: 18, color: 'gray' }}>Gloria!</Text>
-          </View>
-          <View style={{ flexDirection: 'row', gap: 12 }}>
-            <Zap color="gray" size={24} />
-            <Bell color="gray" fill={'gray'} size={24} />
-          </View>
-        </View>
-
-        {/* Banner Card */}
+        {/* ── Header ── */}
         <View style={{
-          marginTop: 24,
-          backgroundColor: '#B01E24',
-          borderRadius: 20,
           flexDirection: 'row',
-          alignItems: 'flex-end',
-          overflow: 'hidden',
-          height: 160,
-          shadowColor: '#000',
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.2,
-          shadowRadius: 8,
-          elevation: 6,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          paddingHorizontal: 25,
+          paddingVertical: 20
         }}>
-          {/* Gambar Wanita */}
-          <Image
-            source={require('../../assets/images/Home-Banner.png')}
-            style={{
-              width: 130,
-              height: 190,
-              marginBottom: 0,
-            }}
-            contentFit="contain"
-            contentPosition="bottom"
-          />
-
-          {/* Konten Teks */}
-          <View style={{ flex: 1, paddingVertical: 16, paddingHorizontal: 12, paddingRight: 16 }}>
-            <Text style={{
-              color: '#fff',
-              fontSize: 16,
-              fontWeight: 'bold',
-              marginBottom: 6,
-              lineHeight: 22,
-            }}>
-              Dasar Keuangan Bisnis
-            </Text>
-            <Text style={{
-              color: 'rgba(255,255,255,0.85)',
-              fontSize: 12,
-              lineHeight: 18,
-              marginBottom: 14,
-            }}>
-              Sukses butuh perjuangan, jangan sendirian, Rina siap menemani, ayo lanjutkan belajar!
-            </Text>
-
-            {/* Tombol Lanjut Belajar */}
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-              <Text style={{ color: '#fff', fontSize: 13, fontWeight: '500' }}>
-                Lanjut Belajar
-              </Text>
-              <TouchableOpacity style={{
-                width: 32,
-                height: 32,
-                borderRadius: 16,
-                backgroundColor: '#fff',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <Play color="#B01E24" size={14} fill="#B01E24" />
-              </TouchableOpacity>
-            </View>
+          <View>
+            <Text style={{ fontSize: 24, fontWeight: '700', color: '#444' }}>Selamat datang,</Text>
+            <Text style={{ fontSize: 20, color: '#888', marginTop: 2 }}>Gloria!</Text>
+          </View>
+          <View style={{ flexDirection: 'row', gap: 1 }}>
+            <TouchableOpacity style={{ padding: 5 }}>
+              <Zap size={24} color="#555" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => router.push('/notifikasi')}
+              style={{ padding: 5 }}
+            >
+              <Bell size={24} color="#555" />
+            </TouchableOpacity>
           </View>
         </View>
 
-      </SafeAreaView>
-    </LinearGradient>
+        {/* ── Featured Card (Dasar Keuangan Bisnis) ── */}
+        <View style={{ paddingHorizontal: 20 }}>
+          <TouchableOpacity activeOpacity={0.9}>
+            <LinearGradient
+              colors={['#800000', '#C41230']}
+              start={{ x: 1, y: 0.5 }}
+              end={{ x: 0, y: 0.5 }}
+              style={{
+                borderRadius: 25,
+                height: 180,
+                flexDirection: 'row',
+                overflow: 'hidden',
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: 10 },
+                shadowOpacity: 0.3,
+                shadowRadius: 15,
+                elevation: 12,
+              }}
+            >
+              {/* 3D Character */}
+              <Image
+                source={require('../../assets/images/Home-Banner.svg')}
+                style={{ width: 300, height: 300, position: 'absolute', bottom: -75, left: -80 }}
+                contentFit="contain"
+              />
+
+              {/* Text Content */}
+              <View style={{ flex: 1, paddingLeft: '40%', paddingVertical: 20, paddingRight: 15, justifyContent: 'center', right: 25 }}>
+                <Text style={{ color: '#fff', fontSize: 18, fontWeight: '700', marginBottom: 8 }}>
+                  Dasar Keuangan Bisnis
+                </Text>
+                <Text style={{ color: '#fca5a5', fontSize: 13, lineHeight: 15 }}>
+                  Sukses butuh perjuangan, jangan sendirian. Rina siap menemani, ayo lanjutkan belajar!
+                </Text>
+
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 15, alignSelf: 'flex-end', left: 10 }}>
+                  <Text style={{ color: '#fff', fontSize: 12, marginRight: 8, fontWeight: '500' }}>Lanjut Belajar</Text>
+                  <PlayCircle size={30} color="#fff" />
+                </View>
+              </View>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
+
+        {/* ── Stats Section (Total Poin & Koin) ── */}
+        <View style={{ flexDirection: 'row', paddingHorizontal: 25, gap: 10, bottom: 30 }}>
+          {/* Total Poin Card */}
+          <Image source={require('../../assets/images/TotalPoin.svg')} style={{ width: 160, height: 160, marginRight: 10 }} contentFit="contain" />
+
+          <Image source={require('../../assets/images/Koin.svg')} style={{ width: 160, height: 160, marginRight: 10 }} contentFit="contain" />
+        </View>
+
+        {/* ── Layanan Bisnis Section ── */}
+        <View style={{ paddingHorizontal: 25, marginTop: -60 }}>
+          <Text style={{ fontSize: 18, fontWeight: '700', color: '#444' }}>Layanan Bisnis</Text>
+          <View style={{ flexDirection: 'row', gap: 15 }}>
+
+            {/* Chat Elve Item */}
+            <TouchableOpacity>
+              <Image source={require('../../assets/images/ChatElve.svg')} style={{ width: 165, height: 165, marginBottom: 12 }} contentFit="contain" />
+            </TouchableOpacity>
+
+            {/* Track Keuangan Item */}
+            <TouchableOpacity>
+              <Image source={require('../../assets/images/TrackKeuangan.svg')} style={{ width: 165, height: 165, marginBottom: 12 }} contentFit="contain" />
+            </TouchableOpacity>
+
+          </View>
+        </View>
+
+        {/* ── Special Untuk Kamu Section ── */}
+        <View style={{ paddingHorizontal: 25, marginTop: -20 }}>
+          <Text style={{ fontSize: 18, fontWeight: '700', color: '#444', marginBottom: 15 }}>Special Untuk Kamu</Text>
+          <TouchableOpacity activeOpacity={0.9}>
+            <View style={{
+              borderRadius: 20,
+              overflow: 'hidden',
+              height: 160,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 8 },
+              shadowOpacity: 0.1,
+              shadowRadius: 12,
+              elevation: 5
+            }}>
+              <Image
+                source={require('../../assets/images/Banner.svg')}
+                style={{ width: '100%', height: '100%' }}
+                contentFit="cover"
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
+
+      </ScrollView>
+    </SafeAreaView>
   )
 }

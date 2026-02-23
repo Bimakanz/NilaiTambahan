@@ -71,6 +71,12 @@ export default function Register() {
                                 width: '100%', height: 50,
                                 borderWidth: 1, borderColor: '#ddd', borderRadius: 10,
                                 paddingHorizontal: 16, fontSize: 14, color: '#222',
+                                backgroundColor: '#fff',
+                                shadowColor: '#000',
+                                shadowOffset: { width: 0, height: 2 },
+                                shadowOpacity: 0.1,
+                                shadowRadius: 4,
+                                elevation: 3,
                             }}
                         />
                     </View>
@@ -81,6 +87,12 @@ export default function Register() {
                             flexDirection: 'row', alignItems: 'center',
                             borderWidth: 1, borderColor: '#ddd', borderRadius: 10,
                             paddingHorizontal: 16, height: 50,
+                            backgroundColor: '#fff',
+                            shadowColor: '#000',
+                            shadowOffset: { width: 0, height: 2 },
+                            shadowOpacity: 0.1,
+                            shadowRadius: 4,
+                            elevation: 3,
                         }}>
                             <TextInput
                                 placeholder="Password"
@@ -123,7 +135,7 @@ export default function Register() {
                         onPress={() => router.replace('/(tabs)/Home')}
                         style={{
                             width: '100%', height: 50, backgroundColor: '#C41230',
-                            borderRadius: 10, alignItems: 'center', justifyContent: 'center',
+                            borderRadius: 50, alignItems: 'center', justifyContent: 'center',
                             shadowColor: '#C41230', shadowOffset: { width: 0, height: 4 },
                             shadowOpacity: 0.35, shadowRadius: 8, elevation: 5,
                             marginBottom: 20,
@@ -141,6 +153,12 @@ export default function Register() {
                         borderWidth: 1, borderColor: '#ddd', borderRadius: 10,
                         flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
                         gap: 10, marginBottom: 12,
+                        backgroundColor: '#fff',
+                        shadowColor: '#000',
+                        shadowOffset: { width: 0, height: 2 },
+                        shadowOpacity: 0.1,
+                        shadowRadius: 4,
+                        elevation: 3,
                     }}>
                         <Image
                             source={require('../assets/images/Google.svg')}
@@ -156,6 +174,12 @@ export default function Register() {
                         borderWidth: 1, borderColor: '#ddd', borderRadius: 10,
                         flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
                         gap: 10, marginBottom: 32,
+                        backgroundColor: '#fff',
+                        shadowColor: '#000',
+                        shadowOffset: { width: 0, height: 2 },
+                        shadowOpacity: 0.1,
+                        shadowRadius: 4,
+                        elevation: 3,
                     }}>
                         <Image
                             source={require('../assets/images/facebook 1.svg')}

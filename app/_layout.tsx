@@ -16,6 +16,14 @@ export default function RootLayout() {
         <Stack.Screen name="masuk" options={{ headerShown: false }} />
         <Stack.Screen name="login" options={{ headerShown: false }} />
         <Stack.Screen name="register" options={{ headerShown: false }} />
+        <Stack.Screen name="welcome" options={{ headerShown: false }} />
+        <Stack.Screen name="survey" options={{ headerShown: false }} />
+        <Stack.Screen name="survey2" options={{ headerShown: false }} />
+        <Stack.Screen name="survey3" options={{ headerShown: false }} />
+        <Stack.Screen name="survey4" options={{ headerShown: false }} />
+        <Stack.Screen name="survey5" options={{ headerShown: false }} />
+        <Stack.Screen name="Congrats" options={{ headerShown: false }} />
+        <Stack.Screen name="notifikasi" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
       </Stack>
