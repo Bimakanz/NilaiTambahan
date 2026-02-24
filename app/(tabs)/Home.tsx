@@ -1,8 +1,8 @@
 import { Image } from 'expo-image'
 import { LinearGradient } from 'expo-linear-gradient'
-import { useRouter } from 'expo-router'
+import { useLocalSearchParams, useRouter } from 'expo-router'
 import { Bell, PlayCircle, Zap } from 'lucide-react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Dimensions,
   ScrollView,
@@ -11,11 +11,20 @@ import {
   View,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import StreakModal from '../../components/StreakModal'
 
 const { width } = Dimensions.get('window')
 
 export default function Home() {
   const router = useRouter()
+  const params = useLocalSearchParams()
+  const [showStreakModal, setShowStreakModal] = useState(false)
+
+  useEffect(() => {
+    if (params.showStreak === 'true') {
+      setShowStreakModal(true)
+    }
+  }, [params.showStreak])
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -31,10 +40,10 @@ export default function Home() {
         }}>
           <View>
             <Text style={{ fontSize: 24, fontWeight: '700', color: '#444' }}>Selamat datang,</Text>
-            <Text style={{ fontSize: 20, color: '#888', marginTop: 2 }}>Gloria!</Text>
+            <Text style={{ fontSize: 20, color: '#888', marginTop: 2 }}>Ujang</Text>
           </View>
           <View style={{ flexDirection: 'row', gap: 1 }}>
-            <TouchableOpacity style={{ padding: 5 }}>
+            <TouchableOpacity onPress={() => setShowStreakModal(true)} style={{ padding: 5 }}>
               <Zap size={24} color="#555" />
             </TouchableOpacity>
             <TouchableOpacity
@@ -140,6 +149,12 @@ export default function Home() {
         </View>
 
       </ScrollView>
+
+      <StreakModal
+        visible={showStreakModal}
+        onClose={() => setShowStreakModal(false)}
+        streakDays={20}
+      />
     </SafeAreaView>
   )
 }

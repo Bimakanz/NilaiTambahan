@@ -186,7 +186,7 @@ export default function Register() {
                         activeOpacity={allValid ? 0.85 : 1}
                         onPress={() => {
                             if (allValid) {
-                                router.replace('/welcome')
+                                router.replace('/welcome' as any)
                             }
                         }}
                         style={{
@@ -231,7 +231,7 @@ export default function Register() {
                     <View style={{ flexDirection: 'row', gap: 4 }}>
                         <Text style={{ fontSize: 13, color: '#666' }}>Sudah punya akun?</Text>
                         <TouchableOpacity onPress={() => router.replace('/login')}>
-                            <Text style={{ fontSize: 13, color: '#C41230', fontWeight: '700' }}>Masuk</Text>
+                            <Text style={{ fontSize: 13, color: '#C41230' }}>Masuk</Text>
                         </TouchableOpacity>
                     </View>
 

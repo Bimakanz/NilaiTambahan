@@ -58,7 +58,7 @@ export default function Congrats() {
                         fontSize: 15,
                         color: '#333',
                         textAlign: 'center',
-                        lineHeight: 22, 
+                        lineHeight: 22,
                         fontWeight: '400',
                         marginBottom: 5
                     }}>
@@ -87,7 +87,7 @@ export default function Congrats() {
 
                         <TouchableOpacity
                             activeOpacity={0.85}
-                            onPress={() => router.replace('/(tabs)/Home')}
+                            onPress={() => router.replace({ pathname: '/(tabs)/Home', params: { showStreak: 'true' } })}
                             style={{
                                 backgroundColor: '#C41230',
                                 borderRadius: 20,

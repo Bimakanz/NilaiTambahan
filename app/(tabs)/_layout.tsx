@@ -12,6 +12,12 @@ import {
  * Komponen Tab Bar kustom sesuai mockup.
  */
 function CustomTabBar({ state, descriptors, navigation }: any) {
+  // Cek apakah route yang aktif adalah 'lesson'
+  const currentRoute = state.routes[state.index].name;
+  if (currentRoute === 'lesson') {
+    return null; // Sembunyikan navigasi bawah di halaman lesson
+  }
+
   return (
     <View style={{
       flexDirection: 'row',
